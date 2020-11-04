@@ -101,8 +101,8 @@ void loop() {
       //Serial.println(sig[i]);
       //Serial.print('\t');
       Serial.print(voltajeA0,3); //el '3' indica 3 cifras decimales
-      Serial.print('\t')
-      Serial.println(voltajeA1,3)
+      Serial.print('\t');
+      Serial.println(voltajeA1,3);
       delay(f);// intervalos de evaluación
     
       }
