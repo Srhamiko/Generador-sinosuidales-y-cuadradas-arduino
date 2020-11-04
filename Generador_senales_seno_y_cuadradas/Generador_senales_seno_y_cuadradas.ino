@@ -14,8 +14,10 @@ int f=2 ;          //Frecuencia de la señal. Este valor esta en HZ
 float fs= 500.0;  //Separación entre valores, "Frecuencia de evaluación".   Recuerde la conversion a periodo T=1/F. 
                   //Por así decirlo esto define el espacio entre los por puntos en la función seno. Ya que no podemos generar una función continua
 
-int pin1=10 ;      //pin del que saldra la señal sinosuidal
-                  //Tenga en cuenta que la señal que vamos a medir debe entrar por el Pin A0
+int pin1=10 ;     //pin del que saldra la señal sinosuidal
+                  //Pin del que medira la señal que vamos a amplificar A0
+                  //Tenga en cuenta que la señal (Amplificada) que vamos a medir debe entrar por el Pin A1
+                  
                   
 
 //-----------------------------------------------------------------------------------------------------------------------------
@@ -92,8 +94,15 @@ void loop() {
       analogWrite(pin1,sig[i]);
       int entradaA0 = analogRead(0);
       float voltajeA0 = deEnteroAVoltaje1(entradaA0);
-      
-      Serial.println(voltajeA0,3); //el '3' indica 3 cifras decimales
+  
+       int entradaA1 = analogRead(1);
+      float voltajeA1 = deEnteroAVoltaje1(entradaA1);
+
+      //Serial.println(sig[i]);
+      //Serial.print('\t');
+      Serial.print(voltajeA0,3); //el '3' indica 3 cifras decimales
+      Serial.print('\t')
+      Serial.println(voltajeA1,3)
       delay(f);// intervalos de evaluación
     
       }
